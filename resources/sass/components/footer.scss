@@ -1,0 +1,100 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+footer {
+    background-color: $dark-bg;
+    color: $white;
+    padding: $space-4xl $space-xl $space-2xl;
+    
+    @include breakpoint($breakpoint-sm) {
+        padding: $space-2xl $space-md $space-lg;
+    }
+    
+    .footer-content {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: $space-3xl;
+        margin-bottom: $space-3xl;
+        
+        @include breakpoint($breakpoint-sm) {
+            gap: $space-2xl;
+            margin-bottom: $space-2xl;
+        }
+    }
+    
+    .footer-section {
+        h4 {
+            color: $white;
+            margin-bottom: $space-lg;
+            font-size: $font-size-lg;
+        }
+        
+        p {
+            color: rgba($white, 0.7);
+            font-size: $font-size-sm;
+            line-height: 1.8;
+        }
+        
+        ul {
+            list-style: none;
+            
+            li {
+                margin-bottom: $space-md;
+                
+                a {
+                    color: rgba($white, 0.7);
+                    transition: color $transition-fast;
+                    
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+    
+    .footer-divider {
+        height: 1px;
+        background-color: rgba($white, 0.1);
+        margin: $space-2xl 0;
+    }
+    
+    .footer-bottom {
+        max-width: 1280px;
+        margin: 0 auto;
+        @include flex-between;
+        flex-wrap: wrap;
+        gap: $space-lg;
+        
+        @include breakpoint($breakpoint-sm) {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .footer-text {
+            color: rgba($white, 0.6);
+            font-size: $font-size-sm;
+        }
+        
+        .footer-links {
+            @include flex-center;
+            gap: $space-2xl;
+            
+            @include breakpoint($breakpoint-sm) {
+                gap: $space-lg;
+                flex-direction: column;
+            }
+            
+            a {
+                color: rgba($white, 0.6);
+                font-size: $font-size-sm;
+                
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}

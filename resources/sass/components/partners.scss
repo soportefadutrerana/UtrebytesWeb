@@ -1,0 +1,242 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.partners-container {
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+}
+
+.partners-header {
+    padding: 4rem 0;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h1 {
+        font-size: 2.75rem;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+        letter-spacing: -0.02em;
+    }
+
+    p {
+        font-size: 1.125rem;
+        color: #666666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.partners-section {
+    padding: 4rem 0;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+
+    @include breakpoint($breakpoint-lg) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.partner-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: slideInUp 0.6s ease-out forwards;
+    opacity: 0;
+    box-shadow: $shadow;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    &:hover {
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        transform: translateY(-6px);
+    }
+
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    @include breakpoint($breakpoint-md) {
+        flex-direction: column !important;
+    }
+}
+
+.partner-card__image {
+    width: 40%;
+    min-width: 40%;
+    height: auto;
+    min-height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        transition: transform $transition-normal;
+        max-height: 100%;
+    }
+
+    @include breakpoint($breakpoint-md) {
+        width: 100%;
+        min-width: 100%;
+        min-height: 220px;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+        min-height: 200px;
+    }
+}
+
+.partner-card:hover .partner-card__image img {
+    transform: scale(1.05);
+}
+
+.partner-card__content {
+    padding: 2.5rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+        font-size: 1.25rem;
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+
+    @include breakpoint($breakpoint-md) {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+        padding: 1.25rem;
+
+        h3 {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.partner-card__category {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: $primary-color;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.partner-card__description {
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+
+    @include breakpoint($breakpoint-sm) {
+        font-size: 0.9rem;
+    }
+}
+
+.partner-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.partners-cta {
+    padding: 4rem 0;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+    }
+
+    p {
+        font-size: 1.125rem;
+        color: #666666;
+        margin-bottom: 2rem;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+    .cta-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(120deg, $accent-color, $primary-color);
+    color: #1a1a1a;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all $transition-normal;
+    box-shadow: $shadow;
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+}
+}
+
+
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}

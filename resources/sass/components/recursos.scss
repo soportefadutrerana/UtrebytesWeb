@@ -1,0 +1,418 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:color' as color;
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.recursos-container {
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+}
+
+.recursos-header {
+    padding: 4rem 0;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h1 {
+        font-size: 2.75rem;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+        letter-spacing: -0.02em;
+    }
+
+    p {
+        font-size: 1.125rem;
+        color: #666666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.recursos-section {
+    padding: 2rem 0;
+}
+
+// Documentación Section
+.recursos-docs {
+    .recursos-subsection-header {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h2 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    .recursos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 1rem;
+
+        @include breakpoint($breakpoint-md) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @include breakpoint($breakpoint-sm) {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    .recurso-card {
+        background: white;
+        border-radius: $radius-xl;
+        overflow: hidden;
+        transition: all $transition-normal;
+        animation: slideInUp 0.6s ease-out forwards;
+        opacity: 0;
+        box-shadow: $shadow;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            transform: translateY(-6px);
+
+            .recurso-card__icon {
+                transform: scale(1.1) rotate(3deg);
+                color: $accent-color;
+            }
+
+            .recurso-card__link {
+                color: $accent-color;
+                transform: translateX(4px);
+            }
+        }
+
+        &:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        &:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        &:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+        &:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+    }
+
+    .recurso-card__header {
+        padding: 2rem;
+        background: linear-gradient(135deg, rgba($primary-color, 0.05) 0%, rgba($accent-color, 0.05) 100%);
+        border-bottom: 3px solid transparent;
+        transition: border-color $transition-normal;
+
+        .recurso-card:hover & {
+            border-bottom-color: $primary-color;
+        }
+    }
+
+    .recurso-card__icon {
+        font-size: 2.5rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+        transition: all $transition-normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: rgba($primary-color, 0.1);
+        border-radius: $radius-lg;
+    }
+
+    .recurso-card__title {
+        font-size: 1.25rem;
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+
+    .recurso-card__content {
+        padding: 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .recurso-card__description {
+        color: #555555;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex: 1;
+    }
+
+    .recurso-card__links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .recurso-card__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $primary-color;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all $transition-normal;
+
+        &::after {
+            content: '→';
+            transition: transform $transition-normal;
+        }
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+}
+
+// Blog Section
+.recursos-blog {
+    .recursos-subsection-header {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h2 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+
+        @include breakpoint($breakpoint-md) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @include breakpoint($breakpoint-sm) {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    .blog-card {
+        background: white;
+        border-radius: $radius-xl;
+        overflow: hidden;
+        box-shadow: $shadow;
+        transition: all $transition-normal;
+        animation: slideInUp 0.6s ease-out forwards;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+            transform: translateY(-6px);
+
+            .blog-image {
+                transform: scale(1.05);
+            }
+
+            .blog-link {
+                color: $accent-color;
+                transform: translateX(4px);
+            }
+        }
+
+        &:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+    }
+
+    .blog-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, rgba($primary-color, 0.1) 0%, rgba($accent-color, 0.1) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: $primary-color;
+        overflow: hidden;
+        transition: transform $transition-normal;
+    }
+
+    .blog-content {
+        padding: 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blog-category {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: $primary-color;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+    }
+
+    .blog-title {
+        font-size: 1.25rem;
+        color: #1a1a1a;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    .blog-excerpt {
+        color: #555555;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        flex: 1;
+    }
+
+    .blog-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+
+        .blog-date {
+            color: #999999;
+            font-size: 0.85rem;
+        }
+
+        .blog-read-time {
+            color: #999999;
+            font-size: 0.85rem;
+        }
+    }
+
+    .blog-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $primary-color;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all $transition-normal;
+
+        &::after {
+            content: '→';
+        }
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+}
+
+// Footer CTA
+.recursos-cta {
+    padding: 4rem 0;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    h2 {
+        font-size: 2.25rem;
+        color: #1a1a1a;
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: #666666;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// Responsive adjustments
+@include breakpoint($breakpoint-sm) {
+    .recursos-header {
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .recursos-subsection-header {
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+}

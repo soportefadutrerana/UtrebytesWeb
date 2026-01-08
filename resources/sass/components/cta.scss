@@ -1,0 +1,49 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:color' as color;
+
+.cta {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+    text-align: center;
+    padding: $space-4xl $space-xl;
+    
+    @include breakpoint($breakpoint-sm) {
+        padding: $space-2xl $space-md;
+    }
+    
+    h2 {
+        color: $white;
+        margin-bottom: $space-lg;
+        
+        @include breakpoint($breakpoint-sm) {
+            margin-bottom: $space-md;
+        }
+    }
+    
+    p {
+        color: rgba($white, 0.95);
+        font-size: $font-size-lg;
+        max-width: 600px;
+        margin: 0 auto $space-2xl;
+        
+        @include breakpoint($breakpoint-sm) {
+            font-size: $font-size-base;
+            margin-bottom: $space-xl;
+        }
+    }
+    
+    .cta-button {
+        @include btn-primary;
+        background-color: $white;
+        color: $accent-color;
+        
+        &:hover {
+            background-color: color.adjust($white, $lightness: -3%);
+            color: color.adjust($accent-color, $lightness: -8%);
+        }
+    }
+}

@@ -1,0 +1,117 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use 'sass:color' as color;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-sans;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    color: $text-dark;
+    background-color: $light-bg;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+        color: color.adjust($primary-color, $lightness: -8%);
+    }
+}
+
+button {
+    font-family: $font-sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-heading;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: $space-md;
+}
+
+h1 {
+    font-size: $font-size-5xl;
+    
+    @include breakpoint($breakpoint-md) {
+        font-size: $font-size-4xl;
+    }
+    
+    @include breakpoint($breakpoint-sm) {
+        font-size: $font-size-3xl;
+    }
+}
+
+h2 {
+    font-size: $font-size-4xl;
+    
+    @include breakpoint($breakpoint-md) {
+        font-size: $font-size-3xl;
+    }
+    
+    @include breakpoint($breakpoint-sm) {
+        font-size: $font-size-2xl;
+    }
+}
+
+h3 {
+    font-size: $font-size-2xl;
+    
+    @include breakpoint($breakpoint-sm) {
+        font-size: $font-size-xl;
+    }
+}
+
+p {
+    color: $text-light;
+    margin-bottom: $space-md;
+    line-height: 1.8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+section {
+    padding: $space-4xl $space-xl;
+    
+    @include breakpoint($breakpoint-md) {
+        padding: $space-3xl $space-lg;
+    }
+    
+    @include breakpoint($breakpoint-sm) {
+        padding: $space-2xl $space-md;
+    }
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $space-xl;
+    
+    @include breakpoint($breakpoint-md) {
+        padding: 0 $space-lg;
+    }
+    
+    @include breakpoint($breakpoint-sm) {
+        padding: 0 $space-md;
+    }
+}

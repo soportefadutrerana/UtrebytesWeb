@@ -1,0 +1,294 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:color' as color;
+
+.contact-hero {
+    padding: $space-2xl 0;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+
+    h1 {
+        font-size: $font-size-4xl;
+        margin-bottom: $space-lg;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: $font-size-lg;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+        padding: $space-xl 0;
+
+        h1 {
+            font-size: $font-size-3xl;
+        }
+
+        p {
+            font-size: $font-size-base;
+        }
+    }
+}
+
+.contact-section {
+    padding: $space-2xl 0;
+    background: $white;
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-3xl;
+
+        @include breakpoint($breakpoint-md) {
+            grid-template-columns: 1fr;
+            gap: $space-2xl;
+        }
+    }
+}
+
+.contact-form-wrapper {
+    h2 {
+        font-size: $font-size-2xl;
+        color: #1a1a1a;
+        margin-bottom: $space-sm;
+        font-weight: 700;
+    }
+
+    .contact-form-subtitle {
+        color: #666666;
+        margin-bottom: $space-2xl;
+        font-size: 0.95rem;
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: $space-sm;
+            font-size: 0.9rem;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: $radius-md;
+            font-family: inherit;
+            font-size: 16px;
+            color: #333333;
+            transition: all $transition-normal;
+            background: #fafafa;
+            touch-action: manipulation;
+            -webkit-touch-callout: none;
+
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+                background: $white;
+                box-shadow: 0 0 0 3px color.scale($primary-color, $alpha: -80%);
+            }
+
+            &::placeholder {
+                color: #999999;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.2em 1.2em;
+            padding-right: 2.5rem;
+            transition: border-color $transition-normal, box-shadow $transition-normal;
+        }
+    }
+}
+
+.btn-submit {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(120deg, $accent-color, $primary-color);
+    color: $dark-bg;
+    border: none;
+    border-radius: $radius-md;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all $transition-normal;
+    box-shadow: $shadow;
+    align-self: flex-start;
+    margin-top: $space-sm;
+
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: $shadow-lg;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.contact-info-wrapper {
+    h2 {
+        font-size: $font-size-2xl;
+        color: #1a1a1a;
+        margin-bottom: $space-2xl;
+        font-weight: 700;
+    }
+
+    .contact-info-card {
+        display: flex;
+        gap: $space-lg;
+        margin-bottom: $space-xl;
+        padding: $space-xl;
+        background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+        border: 1px solid #e0e0e0;
+        border-radius: $radius-lg;
+        transition: all $transition-normal;
+
+        &:hover {
+            border-color: $primary-color;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, $primary-color, $secondary-color);
+            border-radius: $radius-lg;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: $white;
+            flex-shrink: 0;
+        }
+
+        .info-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h3 {
+                font-size: $font-size-base;
+                color: #1a1a1a;
+                margin-bottom: $space-xs;
+                font-weight: 600;
+            }
+
+            p {
+                color: #555555;
+                font-size: 0.9rem;
+                margin: 0;
+                line-height: 1.6;
+
+                a {
+                    color: $primary-color;
+                    text-decoration: none;
+                    transition: color $transition-normal;
+
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-hours {
+        padding: $space-xl;
+        background: linear-gradient(135deg, color.scale($primary-color, $lightness: 35%) 0%, color.scale($secondary-color, $lightness: 35%) 100%);
+        border-radius: $radius-lg;
+        color: $white;
+
+        h3 {
+            font-size: $font-size-base;
+            margin-bottom: $space-md;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                font-size: 0.9rem;
+                margin-bottom: $space-sm;
+                line-height: 1.6;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                strong {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.contact-cta {
+    padding: $space-2xl 0;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+
+    h2 {
+        font-size: $font-size-3xl;
+        margin-bottom: $space-md;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: $font-size-lg;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+        padding: $space-xl 0;
+
+        h2 {
+            font-size: $font-size-2xl;
+        }
+
+        p {
+            font-size: $font-size-base;
+        }
+    }
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $space-xl;
+}

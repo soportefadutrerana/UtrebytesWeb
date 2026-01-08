@@ -1,0 +1,426 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:color' as color;
+
+.navbar {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	padding: $space-md 0;
+	font-family: $font-sans;
+	background: color.mix($dark-bg, $light-bg, 65%);
+	backdrop-filter: blur(18px);
+	border-bottom: 1px solid color.scale($border-color, $lightness: 10%);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+	&__inner {
+		@include flex-between;
+		gap: $space-lg;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 $space-xl;
+	}
+
+	&__brand {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: auto 0 -4px;
+			height: 2px;
+			background: color.scale($accent-color, $lightness: 15%);
+			opacity: 0;
+			transition: opacity $transition-normal;
+		}
+
+		&:hover::after {
+			opacity: 1;
+		}
+	}
+
+	&__logo {
+		height: 50px;
+		width: auto;
+		display: block;
+		object-fit: contain;
+	}
+
+	&__menu {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		gap: clamp($space-md, 1.2vw, $space-xl);
+		margin: 0;
+		padding: 0;
+		max-height: none;
+		transition: transform $transition-normal, opacity $transition-normal, max-height $transition-normal;
+	}
+
+	&__link {
+		display: inline-flex;
+		align-items: center;
+		gap: $space-xs;
+		font-size: $font-size-sm;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: $text-light;
+		
+		line-height: 1.2;
+		white-space: nowrap;
+		position: relative;
+		transition: color $transition-fast;
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 2px;
+			background: $accent-color;
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform $transition-normal;
+		}
+
+		&:hover,
+		&.is-active {
+			color: $white;
+
+			&::after {
+				transform: scaleX(1);
+			}
+		}
+
+		&--cta {
+			@include btn-reset;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: $space-xs;
+			padding: 0.65rem 1.75rem;
+			border-radius: $radius-2xl;
+			font-size: $font-size-sm;
+			font-weight: 600;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			min-height: 44px;
+			white-space: nowrap;
+			color: $dark-bg;
+			background: linear-gradient(120deg, $accent-color, color.scale($primary-color, $lightness: 10%));
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+			transition: all $transition-normal;
+			position: relative;
+			z-index: 0;
+
+			&::after {
+				display: none;
+			}
+
+			&:hover {
+				transform: scale(1.03);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+			}
+
+			&:active {
+				transform: scale(0.98);
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+			}
+		}
+	}
+
+	&__toggle {
+		@include btn-reset;
+		display: none;
+		width: 44px;
+		height: 44px;
+		border-radius: $radius-lg;
+		border: 1px solid color.scale($border-color, $lightness: 20%);
+		position: relative;
+		transition: background $transition-fast;
+
+		span,
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: 20px;
+			height: 2px;
+			background: $white;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: transform $transition-normal, opacity $transition-normal;
+		}
+
+		span {
+			top: 50%;
+		}
+
+		&::before {
+			top: 14px;
+		}
+
+		&::after {
+			bottom: 14px;
+		}
+	}
+
+	&.is-open {
+		.navbar__toggle {
+			span {
+				opacity: 0;
+			}
+
+			&::before {
+				transform: translate(-50%, 6px) rotate(45deg);
+			}
+
+			&::after {
+				transform: translate(-50%, -6px) rotate(-45deg);
+			}
+		}
+
+		.navbar__menu {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translateY(0);
+		}
+
+		@include breakpoint(1200px) {
+			.navbar__menu {
+				padding: $space-md 0 $space-lg;
+				margin-top: $space-sm;
+				border-top-color: color.scale($border-color, $lightness: 10%);
+				max-height: 600px;
+			}
+		}
+	}
+
+	&__dropdown {
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		// Crear una zona invisible que conecta el botón con el dropdown
+		&::after {
+			content: '';
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			height: $space-md;
+			pointer-events: auto;
+		}
+
+		&:hover .navbar__dropdown-menu {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+			pointer-events: auto;
+		}
+
+		.navbar__link {
+			i {
+				font-size: 0.6rem;
+				transition: transform $transition-normal;
+			}
+		}
+
+		&:hover .navbar__link i {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__dropdown-menu {
+		position: absolute;
+		top: calc(100% + $space-sm);
+		left: 0;
+		list-style: none;
+		margin: 0;
+		padding: 8px 0;
+		background: color.mix($dark-bg, $light-bg, 65%);
+		border: 1px solid color.scale($border-color, $lightness: 10%);
+		border-radius: $radius-lg;
+		backdrop-filter: blur(18px);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+		min-width: 290px;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		pointer-events: none;
+		transition: opacity $transition-normal, visibility $transition-normal, transform $transition-normal;
+		z-index: 1001;
+
+		li {
+			padding: 0;
+			margin: 0;
+
+			a {
+				display: block;
+				padding: 8px 14px;
+				color: $text-light;
+				text-decoration: none;
+				transition: all $transition-normal;
+				position: relative;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					width: 3px;
+					background: linear-gradient(180deg, $primary-color, $accent-color);
+					transform: scaleY(0);
+					transform-origin: top;
+					transition: transform $transition-normal;
+				}
+
+				&:hover {
+					color: $white;
+					background: color.scale($border-color, $lightness: 20%);
+
+					&::before {
+						transform: scaleY(1);
+					}
+				}
+			}
+		}
+	}
+
+	&__dropdown-item {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	&__dropdown-content {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 12px;
+		width: 100%;
+	}
+
+	&__dropdown-icon {
+		width: 18px;
+		height: 18px;
+		min-width: 18px;
+		flex-shrink: 0;
+		opacity: 0.7;
+		transition: opacity $transition-normal;
+	}
+
+	a.navbar__dropdown-item:hover .navbar__dropdown-icon {
+		opacity: 1;
+	}
+	&__dropdown-title {
+		font-weight: 700;
+		font-size: 0.85rem;
+		letter-spacing: 0.05em;
+		text-transform: none;
+		white-space: normal;
+		line-height: 1.2;
+		color: $white;
+		display: block;
+		width: 100%;
+	}
+
+	&__dropdown-desc {
+		font-size: 0.7rem;
+		opacity: 0.8;
+		line-height: 1.2;
+		white-space: normal;
+		font-weight: 400;
+		letter-spacing: 0;
+		display: block;
+		width: 100%;
+	}
+
+	@include breakpoint(1200px) {
+		padding: $space-sm 0;
+
+		&__inner {
+			flex-wrap: wrap;
+			padding: 0 $space-lg;
+		}
+
+		&__toggle {
+			display: block;
+		}
+
+		&__menu {
+			flex-direction: column;
+			align-items: flex-start;
+			width: 100%;
+			padding: 0;
+			margin-top: 0;
+			border-top: 1px solid transparent;
+			background: linear-gradient(180deg, color.mix($dark-bg, $light-bg, 70%) 0%, color.mix($dark-bg, $light-bg, 30%) 100%);
+			transform: translateY(-10px);
+			opacity: 0;
+			pointer-events: none;
+			max-height: 0;
+			overflow: hidden;
+			transition: transform $transition-normal, opacity $transition-normal, max-height $transition-normal, padding $transition-fast, margin $transition-fast;
+		}
+
+		&__dropdown {
+			
+			.navbar__link {
+				width: 100%;
+				padding: $space-sm 0;
+				justify-content: space-between;
+                i{
+                    display: none;
+                }
+			}
+
+			&:hover .navbar__dropdown-menu {
+                display: none;
+			}
+		}
+
+		&__dropdown-menu {
+			flex-direction: column;
+
+			li a {
+				padding: $space-sm 0;
+				font-size: $font-size-sm;
+
+				&:hover {
+					background: transparent;
+				}
+			}
+		}
+
+		&__link {
+			justify-content: flex-start;
+			width: 100%;
+			padding: $space-sm 0;
+			white-space: normal;
+
+			&--cta {
+				width: 100%;
+				text-align: center;
+				justify-content: center;
+				margin-top: $space-sm;
+			}
+		}
+
+		&__menu-item--cta {
+			width: 100%;
+		}
+	}
+}
+
+// Optional helper to visually emphasize the "Accede" item when it appears in the list order.
+.navbar__menu-item--cta {
+	order: 9;
+}

@@ -1,0 +1,121 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:color' as color;
+
+.hero {
+    color: $white;
+    min-height: 60vh;
+    @include flex-column;
+    @include flex-center;
+    padding: $space-4xl $space-xl $space-4xl $space-xl;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    @include breakpoint($breakpoint-md) {
+        min-height: 50vh;
+        padding: $space-3xl $space-lg;
+    }
+    
+    @include breakpoint($breakpoint-sm) {
+        min-height: 45vh;
+        padding: $space-2xl $space-md;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+        animation: fadeInUp 1s ease-out;
+        
+        h1 {
+            font-size: $font-size-5xl;
+            margin-bottom: $space-lg;
+            line-height: 1.1;
+            
+            @include breakpoint($breakpoint-md) {
+                font-size: $font-size-4xl;
+                margin-bottom: $space-md;
+            }
+            
+            @include breakpoint($breakpoint-sm) {
+                font-size: $font-size-3xl;
+                margin-bottom: $space-sm;
+            }
+        }
+        
+        p {
+            font-size: $font-size-lg;
+            margin-bottom: $space-xl;
+            color: rgba($white, 0.95);
+            
+            @include breakpoint($breakpoint-sm) {
+                font-size: $font-size-base;
+                margin-bottom: $space-lg;
+            }
+        }
+    }
+    
+    .hero-buttons {
+        @include flex-center;
+        gap: $space-lg;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+        
+        @include breakpoint($breakpoint-sm) {
+            gap: $space-md;
+        }
+        
+        .btn-primary-white {
+            @include btn-primary;
+            background-color: $white;
+            color: $primary-color;
+            
+            &:hover {
+                background-color: color.adjust($white, $lightness: -3%);
+                color: color.adjust($primary-color, $lightness: -8%);
+            }
+        }
+        
+        .btn-secondary-white {
+            @include btn-secondary;
+            background-color: transparent;
+            color: $white;
+            border-color: $white;
+            
+            &:hover {
+                background-color: $white;
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

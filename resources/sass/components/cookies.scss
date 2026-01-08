@@ -1,0 +1,146 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'sass:color' as color;
+
+.cookie-banner {
+    position: fixed;
+    bottom: $space-lg;
+    right: $space-lg;
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(10px);
+    color: $white;
+    padding: $space-md $space-lg;
+    border-radius: $radius-lg;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    animation: slideIn 0.4s ease-out;
+    display: none;
+    max-width: 380px;
+
+    &.show {
+        display: block;
+    }
+
+    @include breakpoint($breakpoint-sm) {
+        bottom: $space-md;
+        right: $space-md;
+        left: $space-md;
+        max-width: none;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100px) translateX(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+}
+
+.cookie-banner__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+}
+
+.cookie-banner__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $space-md;
+}
+
+.cookie-banner__title {
+    font-size: $font-size-base;
+    font-weight: 700;
+    margin: 0;
+    color: $white;
+}
+
+.cookie-banner__close {
+    background: none;
+    border: none;
+    color: $white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-sm;
+    transition: all $transition-normal;
+    flex-shrink: 0;
+    opacity: 0.7;
+
+    &:hover {
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.cookie-banner__text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #d0d0d0;
+    margin: 0;
+}
+
+.cookie-banner__actions {
+    display: flex;
+    gap: $space-sm;
+    justify-content: flex-end;
+
+    @include breakpoint($breakpoint-sm) {
+        flex-direction: column;
+        width: 100%;
+
+        button {
+            width: 100%;
+        }
+    }
+}
+
+.cookie-banner__btn {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: $radius-md;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-normal;
+    white-space: nowrap;
+}
+
+.cookie-banner__btn--primary {
+    background: linear-gradient(120deg, $accent-color, $primary-color);
+    color: $dark-bg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.cookie-banner__btn--secondary {
+    background: transparent;
+    color: $white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+}
+

@@ -1,0 +1,113 @@
+// Mixins
+@use './variables' as *;
+@use 'sass:color' as color;
+
+// Flexbox
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// Responsive
+@mixin breakpoint($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+// Text
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin text-clamp($min, $max) {
+    font-size: clamp($min, 5vw, $max);
+}
+
+// Buttons
+@mixin btn-reset {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin btn-primary {
+    background-color: $primary-color;
+    color: $white;
+    padding: $space-md $space-xl;
+    border-radius: $radius-lg;
+    font-weight: 600;
+    transition: all $transition-normal;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    &:hover {
+        background-color: color.adjust($primary-color, $lightness: -8%);
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    &:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+}
+
+@mixin btn-secondary {
+    background-color: $white;
+    color: $primary-color;
+    padding: $space-md $space-xl;
+    border-radius: $radius-lg;
+    border: 2px solid $primary-color;
+    font-weight: 600;
+    transition: all $transition-normal;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $primary-color;
+        color: $white;
+        transform: translateY(-2px);
+        box-shadow: $shadow;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Cards
+@mixin card {
+    background-color: $white;
+    border-radius: $radius-xl;
+    padding: $space-xl;
+    box-shadow: $shadow;
+    transition: all $transition-normal;
+
+    &:hover {
+        box-shadow: $shadow-lg;
+        transform: translateY(-4px);
+    }
+}
+
+// Gradient
+@mixin gradient($color1, $color2) {
+    background: linear-gradient(135deg, $color1 0%, $color2 100%);
+}
