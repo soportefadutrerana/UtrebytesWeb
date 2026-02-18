@@ -57,17 +57,19 @@
     transition: all $transition-normal;
     border: none;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    /* 🌟 sombra moderna clara */
+    box-shadow: 0 12px 30px rgba($secondary-color, 0.25);
 
     &:hover {
         background-color: color.adjust($primary-color, $lightness: -8%);
         transform: scale(1.02);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 18px 40px rgba($secondary-color, 0.35);
     }
 
     &:active {
         transform: scale(0.98);
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 8px 20px rgba($secondary-color, 0.2);
     }
 }
 
@@ -85,7 +87,9 @@
         background-color: $primary-color;
         color: $white;
         transform: translateY(-2px);
-        box-shadow: $shadow;
+
+        /* 🌟 sombra nueva */
+        box-shadow: 0 12px 30px rgba($secondary-color, 0.25);
     }
 
     &:active {
@@ -98,11 +102,14 @@
     background-color: $white;
     border-radius: $radius-xl;
     padding: $space-xl;
-    box-shadow: $shadow;
+
+    /* 🌟 sombra elegante */
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.06);
+
     transition: all $transition-normal;
 
     &:hover {
-        box-shadow: $shadow-lg;
+        box-shadow: 0 30px 80px rgba($secondary-color, 0.18);
         transform: translateY(-4px);
     }
 }

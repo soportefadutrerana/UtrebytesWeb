@@ -19,7 +19,7 @@
             <div class="contact-form-wrapper">
                 <h2>Agendar una Cita</h2>
                 <p class="contact-form-subtitle">Completa el formulario y nos pondremos en contacto pronto</p>
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form" action="{{ route ('contacto.enviar')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nombre Completo</label>

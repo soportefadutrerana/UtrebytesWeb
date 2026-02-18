@@ -9,7 +9,7 @@
 	width: 100%;
 	padding: $space-md 0;
 	font-family: $font-sans;
-	background: color.mix($dark-bg, $light-bg, 65%);
+	background: color.mix($text-dark, $light-blue-bg, 65%);
 	backdrop-filter: blur(18px);
 	border-bottom: 1px solid color.scale($border-color, $lightness: 10%);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -69,7 +69,7 @@
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		text-decoration: none;
-		color: $text-light;
+		color: $white;
 		
 		line-height: 1.2;
 		white-space: nowrap;
@@ -112,7 +112,7 @@
 			text-transform: uppercase;
 			min-height: 44px;
 			white-space: nowrap;
-			color: $dark-bg;
+			color: $text-dark;
 			background: linear-gradient(120deg, $accent-color, color.scale($primary-color, $lightness: 10%));
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 			transition: all $transition-normal;
@@ -244,7 +244,7 @@
 		list-style: none;
 		margin: 0;
 		padding: 8px 0;
-		background: color.mix($dark-bg, $light-bg, 65%);
+		background: color.mix($text-dark, $light-blue-bg, 65%);
 		border: 1px solid color.scale($border-color, $lightness: 10%);
 		border-radius: $radius-lg;
 		backdrop-filter: blur(18px);
@@ -264,7 +264,7 @@
 			a {
 				display: block;
 				padding: 8px 14px;
-				color: $text-light;
+				color: $text-medium;
 				text-decoration: none;
 				transition: all $transition-normal;
 				position: relative;
@@ -362,7 +362,7 @@
 			padding: 0;
 			margin-top: 0;
 			border-top: 1px solid transparent;
-			background: linear-gradient(180deg, color.mix($dark-bg, $light-bg, 70%) 0%, color.mix($dark-bg, $light-bg, 30%) 100%);
+			background: linear-gradient(180deg, color.mix($text-dark, $light-blue-bg, 70%) 0%, color.mix($text-dark, $light-blue-bg, 30%) 100%);
 			transform: translateY(-10px);
 			opacity: 0;
 			pointer-events: none;

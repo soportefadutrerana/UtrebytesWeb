@@ -34,6 +34,11 @@ Route::get('/contacto', function () {
     return view('pages.contacto');
 })->name('contacto');
 
+Route::post('/contacto', function () {
+    return back()->with('success', 'Mensaje enviado correctamente');
+})->name('contacto.enviar');
+
+
 Route::get('/accede', function () {
     return view('pages.accede');
 })->name('accede');

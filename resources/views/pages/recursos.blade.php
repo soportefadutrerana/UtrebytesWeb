@@ -8,7 +8,7 @@
     <section class="recursos-header" style="background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('{{ asset('images/heros/hero_recursos.jpg') }}');">
         <div class="container">
             <h1>RECURSOS PARA DESARROLLADORES</h1>
-            <p>Todo lo que necesitas para integrar y maximizar nuestras soluciones</p>
+            <p>Todo lo que necesitas para integrar y maximizar nuestras soluciones.</p>
         </div>
     </section>
 
@@ -17,7 +17,7 @@
         <div class="container">
             <div class="recursos-subsection-header">
                 <h2>Documentación Técnica</h2>
-                <p>Accede a nuestra completa documentación técnica y guías de integración</p>
+                <p>Accede a nuestra completa documentación técnica y guías de integración.</p>
             </div>
 
             <div class="recursos-grid">
@@ -159,7 +159,7 @@
                         </p>
                         <div class="blog-meta">
                             <span class="blog-date">23 de Diciembre, 2025</span>
-                            <span class="blog-read-time">5 min lectura</span>
+                            <span class="blog-read-time">5min lectura</span>
                         </div>
                         <a href="#" class="blog-link" target="_blank">Leer Artículo</a>
                     </div>
@@ -178,7 +178,7 @@
                         </p>
                         <div class="blog-meta">
                             <span class="blog-date">18 de Diciembre, 2025</span>
-                            <span class="blog-read-time">8 min lectura</span>
+                            <span class="blog-read-time">8min lectura</span>
                         </div>
                         <a href="#" class="blog-link" target="_blank">Leer Artículo</a>
                     </div>
@@ -197,7 +197,7 @@
                         </p>
                         <div class="blog-meta">
                             <span class="blog-date">12 de Diciembre, 2025</span>
-                            <span class="blog-read-time">6 min lectura</span>
+                            <span class="blog-read-time">6min lectura</span>
                         </div>
                         <a href="#" class="blog-link" target="_blank">Leer Artículo</a>
                     </div>

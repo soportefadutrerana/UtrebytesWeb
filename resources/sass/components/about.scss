@@ -21,6 +21,7 @@
         font-size: $font-size-lg;
         max-width: 600px;
         margin: 0 auto;
+        color: $white;
     }
 
     @include breakpoint($breakpoint-sm) {
@@ -293,7 +294,7 @@
         display: inline-block;
         padding: $space-md $space-2xl;
         background: linear-gradient(120deg, $accent-color, $primary-color);
-        color: $dark-bg;
+        color: $text-dark;
         border-radius: $radius-lg;
         text-decoration: none;
         font-weight: 600;

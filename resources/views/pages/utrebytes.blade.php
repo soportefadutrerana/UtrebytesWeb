@@ -4,10 +4,10 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="about-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('images/heros/hero_background.jpg') }}');">
-    <div class="container">
+<section class = "about-hero" style = "background-image: url('{{ asset ('images/heros/hero_background.jpg')}}');>
+    <div class = "container">
         <h1>Conócenos</h1>
-        <p>La unidad tecnológica del GRUPO LRP 24 HOLDING dedicada a la transformación digital</p>
+        <p>La unidad tecnológica del GRUPO LRP 24 HOLDING dedicada a la transformación digital.</p>
     </div>
 </section>
 
@@ -31,7 +31,7 @@
     <div class="container">
         <div class="about-grid">
             <div class="about-image">
-                <img src="{{ asset('images/about/about_2.png') }}" alt="Instalaciones UtreBytes">
+                <img src="{{ asset('images/about/about_2.jpg') }}" alt="Instalaciones UtreBytes">
             </div>
             <div class="about-content">
                 <h2>Nuestras Instalaciones</h2>
