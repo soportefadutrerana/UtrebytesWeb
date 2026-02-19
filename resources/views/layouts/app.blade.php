@@ -163,44 +163,55 @@
 
     <!-- Cookie Banner -->
     @include('components.cookie-banner')
-    <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>UtreBytes</h4>
-                    <p>Soluciones tecnológicas innovadoras para el futuro de tu negocio.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Producto</h4>
-                    <ul>
-                        <li><a href="{{ route('caracteristicas') }}">Servicios</a></li>
-                        <li><a href="{{ route('caracteristicas') }}">Precios</a></li>
-                        <li><a href="#">Seguridad</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Empresa</h4>
-                    <ul>
-                        <li><a href="{{ route('utrebytes') }}">Acerca de</a></li>
-                        <li><a href="{{ route('recursos') }}">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="{{ route('terminos-cookies') }}">Términos y Cookies</a></li>
-                        <li><a href="#">Datos</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-divider"></div>
-            <div class="footer-bottom">
-                <p class="footer-text">&copy; 2025 UtreBytes. Todos los derechos reservados.</p>
-                <div class="footer-links">
-                    <a href="https://x.com/?lang=es">Twitter</a>
-                    <a href="https://es.linkedin.com/">LinkedIn</a>
-                    <a href="https://github.com/?locale=es">GitHub</a>
-                </div>
-            </div>
-        </footer>
+    
+    <footer class="footer-pro-dark">
+
+    <div class="container footer-pro-dark__top">
+
+        <!-- Marca -->
+        <div class="footer-pro-dark__brand">
+            <img src="{{ asset('images/logo2.png') }}" alt="UtreBytes">
+            <p>
+                Soluciones tecnológicas avanzadas para impulsar la transformación
+                digital de empresas modernas.
+            </p>
+        </div>
+
+        <!-- Producto -->
+        <div class="footer-pro-dark__col">
+            <h4>Producto</h4>
+            <ul>
+                <li><a href="{{ route('caracteristicas') }}">Servicios</a></li>
+                <li><a href="{{ route('caracteristicas') }}">Precios</a></li>
+                <li><a href="#">Seguridad</a></li>
+            </ul>
+        </div>
+
+        <!-- Empresa -->
+        <div class="footer-pro-dark__col">
+            <h4>Empresa</h4>
+            <ul>
+                <li><a href="{{ route('utrebytes') }}">Acerca de</a></li>
+                <li><a href="{{ route('recursos') }}">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-pro-dark__col">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="{{ route('terminos-cookies') }}">Términos y Cookies</a></li>
+                <li><a href="#">Datos</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-pro-dark__bottom">
+        © 2026 UtreBytes. Todos los derechos reservados.
+    </div>
+
+</footer>
+
 </body>
 </html>

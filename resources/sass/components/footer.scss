@@ -1,100 +1,84 @@
-@use '../variables' as *;
-@use '../mixins' as *;
+/* =================================
+   FOOTER PRO OSCURO
+================================= */
 
-footer {
-    background-color: $text-dark;
-    color: $white;
-    padding: $space-4xl $space-xl $space-2xl;
-    
-    @include breakpoint($breakpoint-sm) {
-        padding: $space-2xl $space-md $space-lg;
-    }
-    
-    .footer-content {
-        max-width: 1280px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: $space-3xl;
-        margin-bottom: $space-3xl;
-        
-        @include breakpoint($breakpoint-sm) {
-            gap: $space-2xl;
-            margin-bottom: $space-2xl;
-        }
-    }
-    
-    .footer-section {
-        h4 {
-            color: $white;
-            margin-bottom: $space-lg;
-            font-size: $font-size-lg;
-        }
-        
-        p {
-            color: rgba($white, 0.7);
-            font-size: $font-size-sm;
-            line-height: 1.8;
-        }
-        
-        ul {
-            list-style: none;
-            
-            li {
-                margin-bottom: $space-md;
-                
-                a {
-                    color: rgba($white, 0.7);
-                    transition: color $transition-fast;
-                    
-                    &:hover {
-                        color: $primary-color;
-                    }
-                }
-            }
-        }
-    }
-    
-    .footer-divider {
-        height: 1px;
-        background-color: rgba($white, 0.1);
-        margin: $space-2xl 0;
-    }
-    
-    .footer-bottom {
-        max-width: 1280px;
-        margin: 0 auto;
-        @include flex-between;
-        flex-wrap: wrap;
-        gap: $space-lg;
-        
-        @include breakpoint($breakpoint-sm) {
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        .footer-text {
-            color: rgba($white, 0.6);
-            font-size: $font-size-sm;
-        }
-        
-        .footer-links {
-            @include flex-center;
-            gap: $space-2xl;
-            
-            @include breakpoint($breakpoint-sm) {
-                gap: $space-lg;
-                flex-direction: column;
-            }
-            
-            a {
-                color: rgba($white, 0.6);
-                font-size: $font-size-sm;
-                
-                &:hover {
-                    color: $primary-color;
-                }
-            }
-        }
+.footer-pro-dark {
+    background: linear-gradient(180deg, #0b1627, #091220);
+    color: #c9d3e4;
+    margin-top: 0;
+    font-size: 0.95rem;
+}
+
+/* TOP */
+
+.footer-pro-dark__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+
+    padding: 3rem 5%; /* ← margen lateral elegante */
+    max-width: 1400px;
+    margin: 0 auto;   /* ← centra el contenido */
+}
+
+
+/* BRAND */
+
+.footer-pro-dark__brand img {
+    width: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer-pro-dark__brand p {
+    max-width: 320px;
+    line-height: 1.6;
+    color: #9fb0c8;
+}
+
+/* COLUMNAS */
+
+.footer-pro-dark__col h4 {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: .9rem;
+}
+
+.footer-pro-dark__col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-pro-dark__col li {
+    margin-bottom: .5rem;
+}
+
+/* LINKS */
+
+.footer-pro-dark__col a {
+    color: #9fb0c8;
+    text-decoration: none;
+    transition: color .2s;
+}
+
+.footer-pro-dark__col a:hover {
+    color: #7fb2ff; /* tu azul */
+}
+
+/* BOTTOM */
+
+.footer-pro-dark__bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    padding: 1.2rem 0;
+    font-size: 0.85rem;
+    color: #7e90aa;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .footer-pro-dark__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
     }
 }
