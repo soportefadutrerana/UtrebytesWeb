@@ -3,94 +3,125 @@
 @section('title', 'Inicio - UtreBytes')
 
 @section('content')
-        <!-- Hero Section -->
-        <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset('images/heros/hero_background.jpg') }}');">
-            <div class="hero-content">
-                <h1>Bienvenido a UtreBytes</h1>
-                <p>Unidad tecnológica GRUPO LRP 24 HOLDING S.L. 
-                <br> 
-                Tecnología de vanguardia al servicio de tus necesidades.   
-                </p>
-                <div class="hero-buttons">
-                    <a href="{{ route('caracteristicas') }}" class="btn-primary-white">Consultar servicios</a>
-                    <a href="{{ route('utrebytes') }}" class="btn-secondary-white">Conoce Más</a>
-                </div>
-            </div>
-        </section>
 
-        <!-- Features Section -->
-        <section class="features" id="features">
-            <div class="container">
-                <div class="features-header">
-                    <h2>¿Por qué Elegirnos?</h2>
-                    <p>Descubre los servicios que ofrecemos para tu proyecto</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/soluciones-digitales.jpg') }}" alt="Desarrollo de Software a Medida" loading="lazy">
-                        </div>
-                        <h3>Soluciones Digitales a Medida</h3>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/ia-negocio.jpg') }}" alt="Inteligencia Artificial y Modelos Generativos" loading="lazy">
-                        </div>
-                        <h3>Inteligencia Artificial Aplicada al Negocio</h3>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/erp.jfif') }}" alt="ERP Inteligente" loading="lazy">
-                        </div>
-                        <h3>ERP Inteligente y Operativo</h3>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/automatizacion-avanzada.jpg') }}" alt="Automatización de Procesos y Agentes Autónomos" loading="lazy">
-                        </div>
-                        <h3>Automatización Avanzada y Agentes Autónomos</h3>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/ciberseguridad.jpg') }}" alt="Ciberseguridad y Cumplimiento" loading="lazy">
-                        </div>
-                        <h3>Ciberseguridad y Cumplimiento Normativo</h3>
-                    </div>
-                    <div class="feature-card hidden">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/bussines-intelillence.jpg') }}" alt="Cloud, DevOps y Escalabilidad" loading="lazy">
-                        </div>
-                        <h3>Business Intelligence y y Analítica Avanzada</h3>
-                    </div>
-                    <div class="feature-card hidden">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/soporte-mantenimiento.jpg') }}" alt="Formación y Captación de Talento (CUCO)" loading="lazy">
-                        </div>
-                        <h3>Soporte, Mantenimiento y SLA</h3>
-                    </div>
-                    <div class="feature-card hidden">
-                        <div class="feature-image">
-                            <img src="{{ asset('images/servicios/infraestructura-it.jfif') }}" alt="Formación y Captación de Talento (CUCO)" loading="lazy">
-                        </div>
-                        <h3>Infraestructura IT, Comunicaciones y Servicios Cloud</h3>
-                    </div>
-                </div>
-                <div class="features-actions">
-                    <button class="btn-show-more" id="showMoreBtn">
-                        Ver más Servicios
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
+<!-- HERO -->
+<section class="hero-pro" style="background-image: linear-gradient(rgba(5,10,20,.78), rgba(5,10,20,.9)), url('{{ asset('images/heros/hero_background.jpg') }}');">
+    <div class="hero-pro__content container">
 
-        <!-- CTA Section -->
-        <section class="cta" id="cta" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset('images/heros/hero_background.jpg') }}');">
-            <div class="container">
-                <h2>¿Quieres Transformar tu Negocio?</h2>
-                <p>Únete a decenas de empresas que ya confían en nuestras soluciones. Contacta con nosotros hoy mismo.</p>
-                <a href="{{ route('contacto') }}" class="cta-button">Contacta</a>
+        <span class="hero-pro__badge">
+            Unidad Tecnológica GRUPO LRP 24 HOLDING
+        </span>
+
+        <h1>
+            Transformación Digital Avanzada<br>
+            para Empresas que Quieren Crecer
+        </h1>
+
+        <p>
+            Soluciones con inteligencia artificial, automatización y software a medida
+            para optimizar procesos, reducir costes y escalar tu negocio.
+        </p>
+
+        <div class="hero-pro__buttons">
+            <a href="{{ route('contacto') }}" class="btn-primary">Solicitar Asesoría</a>
+            <a href="{{ route('caracteristicas') }}" class="btn-secondary">Ver Servicios</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TRUST / VENTAJAS -->
+<section class="trust">
+    <div class="container">
+
+        <div class="section-head">
+            <h2>Nuestra Ventaja Tecnológica</h2>
+            <p>Soluciones Diseñadas para Resultados Reales</p>
+        </div>
+
+        <div class="trust-grid">
+
+            <div class="trust-card">
+                <div class="trust-icon">🤖</div>
+                <h3>IA Aplicada al Negocio</h3>
+                <p>Automatizamos procesos y mejoramos la toma de decisiones.</p>
             </div>
-        </section>
-        
+
+            <div class="trust-card">
+                <div class="trust-icon">💻</div>
+                <h3>Software a Medida</h3>
+                <p>Desarrollos adaptados a las necesidades de cada empresa.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-icon">🛠</div>
+                <h3>Soporte Continuo</h3>
+                <p>Acompañamiento técnico antes, durante y después.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-icon">☁️</div>
+                <h3>Infraestructura Segura</h3>
+                <p>Sistemas cloud preparados para escalar y proteger.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- IMPACTO (BLOQUE OSCURO PRO) -->
+<section class="impact-pro">
+    <div class="container">
+
+        <div class="section-head light">
+            <h2>Impacto en tu Empresa</h2>
+            <p>Resultados Medibles mediante Tecnología Inteligente</p>
+        </div>
+
+        <div class="impact-grid">
+
+            <div class="impact-card">
+                <span>+40%</span>
+                <p>Mejora de Productividad</p>
+            </div>
+
+            <div class="impact-card">
+                <span>-30%</span>
+                <p>Reducción de Costes</p>
+            </div>
+
+            <div class="impact-card">
+                <span>24/7</span>
+                <p>Automatización</p>
+            </div>
+
+            <div class="impact-card">
+                <span>Escalable</span>
+                <p>Infraestructura Preparada</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA FINAL -->
+<section class="cta-pro">
+    <div class="container">
+
+        <h2>¿Listo para Dar el Salto Tecnológico?</h2>
+
+        <p>
+            Analizamos tu empresa y diseñamos una solución adaptada a tus objetivos.
+        </p>
+
+        <a href="{{ route('contacto') }}" class="btn-primary btn-large">
+            Solicitar Diagnóstico
+        </a>
+
+    </div>
+</section>
+
 @endsection
