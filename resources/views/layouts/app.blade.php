@@ -154,6 +154,26 @@
         </div>
     </nav>
 
+    <script>
+document.querySelector(".navbar__toggle")
+.addEventListener("click", () => {
+    document.querySelector(".navbar__menu")
+    .classList.toggle("active");
+});
+
+const toggle = document.querySelector('.navbar__toggle');
+const menu = document.querySelector('.navbar__menu');
+
+toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+});
+
+const dropdown = document.querySelector('.navbar__dropdown');
+dropdown.addEventListener('click', () => {
+    dropdown.classList.toggle('active');
+});
+</script>
+
     <!-- Main Content -->
 
         @yield('content')

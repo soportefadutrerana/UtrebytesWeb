@@ -1,22 +1,23 @@
 /* =================================
-   NAVBAR PRO OSCURO (IGUAL QUE FOOTER)
+   NAVBAR PRO ULTRA RESPONSIVE
+   COMPLETO — COPY & PASTE READY
 ================================= */
 
 .navbar {
     background: linear-gradient(90deg, #0b1627, #091220);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
 }
 
-/* CONTENEDOR INTERNO */
+/* CONTENEDOR */
 
 .navbar__inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 14px 20px;
 
-    display: flex;              /* 🔥 CLAVE */
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
@@ -27,10 +28,12 @@
     height: 44px;
 }
 
-/* MENÚ */
+/* ===============================
+   MENÚ DESKTOP
+================================ */
 
 .navbar__menu {
-    display: flex;              /* 🔥 CLAVE */
+    display: flex;
     align-items: center;
     gap: 28px;
     list-style: none;
@@ -51,36 +54,47 @@
     color: #7fb2ff;
 }
 
-/* LINK ACTIVO (línea azul bonita) */
+/* ===============================
+   BOTÓN HAMBURGUESA
+================================ */
 
-.navbar__link.active {
-    color: white;
-    position: relative;
+.navbar__toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.navbar__link.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 2px;
-    background: #7fb2ff;
+.navbar__toggle span,
+.navbar__toggle span::before,
+.navbar__toggle span::after {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: white;
+    position: relative;
     border-radius: 2px;
 }
 
-
-/* =================================
-   PADRE DEL DROPDOWN
-================================= */
-
-.navbar__dropdown {
-    position: relative; /* 🔥 CLAVE */
+.navbar__toggle span::before,
+.navbar__toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
 }
 
-/* =================================
-   DROPDOWN CONTENEDOR
-================================= */
+.navbar__toggle span::before { top: -8px; }
+.navbar__toggle span::after  { top: 8px; }
+
+/* ===============================
+   DROPDOWN DESKTOP
+================================ */
+
+.navbar__dropdown {
+    position: relative;
+}
+
+/* CAJA */
 
 .navbar__dropdown-menu {
 
@@ -101,34 +115,21 @@
     box-shadow: 0 25px 60px rgba(0,0,0,.55);
     border: 1px solid rgba(127,178,255,.15);
 
-    display: none; /* oculto */
+    display: none;
+    z-index: 9999;
 }
 
-/* MOSTRAR AL HOVER */
+/* MOSTRAR EN HOVER */
 
 .navbar__dropdown:hover .navbar__dropdown-menu {
     display: block;
 }
 
-/* =================================
-   ITEMS
-================================= */
+/* ITEMS */
 
 .navbar__dropdown-item {
     display: block;
     text-decoration: none;
-}
-
-/* CONTENIDO DE CADA ITEM */
-
-.navbar__dropdown-content {
-    display: grid;
-    grid-template-columns: 1fr auto; /* texto | icono */
-    align-items: center;             /* 🔥 centra verticalmente */
-    gap: 16px;
-}
-
-.navbar__dropdown-item {
     padding: 14px 18px;
     border-radius: 12px;
     transition: background .25s ease;
@@ -138,6 +139,14 @@
     background: rgba(127,178,255,0.15);
 }
 
+/* CONTENIDO */
+
+.navbar__dropdown-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 16px;
+}
 
 /* ICONO */
 
@@ -147,7 +156,6 @@
     opacity: 0.9;
     flex-shrink: 0;
 }
-
 
 /* TEXTOS */
 
@@ -162,4 +170,68 @@
     font-size: .85rem;
     opacity: .7;
     color: #c9d3e4;
+}
+
+/* =================================
+   📱 RESPONSIVE — TABLET & MÓVIL
+================================= */
+
+@media (max-width: 900px) {
+
+    /* mostrar hamburguesa */
+    .navbar__toggle {
+        display: block;
+    }
+
+    /* menú móvil */
+
+    .navbar__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        background: linear-gradient(180deg, #0b1627, #091220);
+
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        padding: 20px;
+
+        display: none;
+    }
+
+    /* cuando esté abierto */
+
+    .navbar__menu.active {
+        display: flex;
+    }
+
+    /* ===========================
+       DROPDOWN EN MÓVIL
+       🔥 ESTE ERA TU PROBLEMA
+    =========================== */
+
+    .navbar__dropdown-menu {
+        position: static;
+        width: 100%;
+        max-height: none;
+        margin-top: 10px;
+        box-shadow: none;
+        border: none;
+        display: none;
+    }
+
+    /* mostrar cuando el dropdown tenga active */
+
+    .navbar__dropdown.active .navbar__dropdown-menu {
+        display: block;
+    }
+
+    /* desactivar hover en móvil */
+
+    .navbar__dropdown:hover .navbar__dropdown-menu {
+        display: none;
+    }
 }

@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="contact-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('images/heros/hero_background.jpg') }}');">
+<section class = "contact-hero" style = "background-image; url('{{ asset('images/hero/hero_background.jpg') }}');">
     <div class="container">
         <h1>Contáctanos</h1>
         <p>Estamos aquí para ayudarte a transformar tu negocio. Ponte en contacto con nuestro equipo</p>

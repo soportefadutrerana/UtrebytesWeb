@@ -52,7 +52,7 @@
 
     &__buttons .btn-primary {
         position: relative;
-        padding: 16px 36px;
+        padding: 10px 18px;
         border-radius: 999px;
         font-weight: 700;
         font-size: 1rem;
@@ -69,7 +69,8 @@
 
         transition: all .35s cubic-bezier(.2, .8, .2, 1);
 
-        overflow: hidden;
+        width: fit-content;
+        flex: 0 0 auto;
     }
 
     &__buttons .btn-primary::before {
