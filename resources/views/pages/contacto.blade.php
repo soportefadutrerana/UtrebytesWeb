@@ -4,13 +4,19 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class = "contact-hero" style = "background-image; url('{{ asset('images/hero/hero_background.jpg') }}');">
-    <div class="container">
-        <h1>Contáctanos</h1>
-        <p>Estamos aquí para ayudarte a transformar tu negocio. Ponte en contacto con nuestro equipo</p>
+<section class = "contact-hero" style = "background-image: url('{{ asset ('images/heros/hero_background.jpg') }}');">
+    <div class = "container">
+        <div class = "contact-hero__panel">
+            <span class = "contact-hero__badge">CONTACTO</span>
+
+            <h1>Hablemos de Tu Proyecto</h1>
+            <p>
+                Estamos aquí para ayudarte a transformar tu negocio.
+                Ponte en contacto con nuestro equipo y descubre cómo podemos impulsar tu empresa.
+            </p>
+        </div>
     </div>
 </section>
-
 <!-- Contact Form & Info Section -->
 <section class="contact-section">
     <div class="container">
